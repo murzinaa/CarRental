@@ -24,13 +24,25 @@ namespace CarRentalService
             carBindingSource.DataSource = _context.Cars.Local.ToBindingList();
             clientBindingSource.DataSource = _context.Clients.Local.ToBindingList();
             reservationBindingSource.DataSource = _context.Reservations.Local.ToBindingList();
-            
+
         }
 
         private void saveButton_Click(object sender, EventArgs e)
         {
             _context.SaveChanges();
             dataGridView1.Refresh();
+        }
+
+        private void saveClientButton_Click(object sender, EventArgs e)
+        {
+            _context.SaveChanges();
+            dataGridView3.Refresh();
+        }
+
+        private void saveReservationButton_Click(object sender, EventArgs e)
+        {
+            _context.SaveChanges();
+            dataGridView2.Refresh();
         }
     }
 }
