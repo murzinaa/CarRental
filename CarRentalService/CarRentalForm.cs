@@ -17,13 +17,7 @@ namespace CarRentalService
             _context = new CarRentalContext();
             _context.Database.EnsureCreated();
             _context.Reservations.Load();
-
-        }
-
-        private void carTabPage_Click(object sender, EventArgs e)
-        {
-            _context.Cars.Load();
-            // dataGridView1.Columns..DataSource = context.Cars.Local.ToBindingList();
+            dataGridView3.DataSource = _context.Reservations.Local.ToBindingList();
         }
 
         private void saveButton_Click(object sender, EventArgs e)
