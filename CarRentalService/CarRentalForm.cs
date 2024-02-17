@@ -16,5 +16,10 @@ namespace CarRentalService
         {
             InitializeComponent();
         }
+
+        private void CarRentalForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
