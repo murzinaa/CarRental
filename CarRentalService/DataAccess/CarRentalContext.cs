@@ -11,6 +11,8 @@ namespace CarRentalService.DataAccess
 
         public DbSet<Reservation> Reservations { get; set; }
 
+        public DbSet<Fine> Fines { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(@"Data Source=(localdb)\mssqllocaldb;Initial Catalog=CarRental;");

@@ -20,11 +20,12 @@ namespace CarRentalService
             _context.Reservations.Load();
             _context.Cars.Load();
             _context.Clients.Load();
+            _context.Fines.Load();
 
             carBindingSource.DataSource = _context.Cars.Local.ToBindingList();
             clientBindingSource.DataSource = _context.Clients.Local.ToBindingList();
             reservationBindingSource.DataSource = _context.Reservations.Local.ToBindingList();
-
+            fineBindingSource.DataSource = _context.Fines.Local.ToBindingList();
         }
 
         private void saveButton_Click(object sender, EventArgs e)
@@ -43,6 +44,12 @@ namespace CarRentalService
         {
             _context.SaveChanges();
             dataGridView2.Refresh();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            _context.SaveChanges();
+            dataGridView4.Refresh();
         }
     }
 }
