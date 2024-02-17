@@ -39,10 +39,6 @@
             this.carTabPage = new System.Windows.Forms.TabPage();
             this.saveButton = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.modelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.yearDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.numberOfSeatsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.typeOfEngineDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clientsTabPage = new System.Windows.Forms.TabPage();
             this.saveClientButton = new System.Windows.Forms.Button();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
@@ -63,6 +59,12 @@
             this.startDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.expectedReturnDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.actualReturnDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalSum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.modelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PricePerDay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.yearDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.numberOfSeatsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.typeOfEngineDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl.SuspendLayout();
             this.reservationTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -98,7 +100,7 @@
             this.reservationTabPage.Controls.Add(this.dataGridView2);
             this.reservationTabPage.Location = new System.Drawing.Point(4, 29);
             this.reservationTabPage.Name = "reservationTabPage";
-            this.reservationTabPage.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.reservationTabPage.Padding = new System.Windows.Forms.Padding(3);
             this.reservationTabPage.Size = new System.Drawing.Size(829, 393);
             this.reservationTabPage.TabIndex = 0;
             this.reservationTabPage.Text = "Бронювання";
@@ -124,7 +126,8 @@
             this.carDataGridViewTextBoxColumn,
             this.startDateDataGridViewTextBoxColumn,
             this.expectedReturnDateDataGridViewTextBoxColumn,
-            this.actualReturnDateDataGridViewTextBoxColumn});
+            this.actualReturnDateDataGridViewTextBoxColumn,
+            this.TotalSum});
             this.dataGridView2.DataSource = this.reservationBindingSource;
             this.dataGridView2.Location = new System.Drawing.Point(6, 6);
             this.dataGridView2.Name = "dataGridView2";
@@ -152,7 +155,7 @@
             this.carTabPage.Controls.Add(this.dataGridView1);
             this.carTabPage.Location = new System.Drawing.Point(4, 29);
             this.carTabPage.Name = "carTabPage";
-            this.carTabPage.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.carTabPage.Padding = new System.Windows.Forms.Padding(3);
             this.carTabPage.Size = new System.Drawing.Size(829, 393);
             this.carTabPage.TabIndex = 1;
             this.carTabPage.Text = "Авто";
@@ -173,6 +176,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.modelDataGridViewTextBoxColumn,
+            this.PricePerDay,
             this.yearDataGridViewTextBoxColumn,
             this.numberOfSeatsDataGridViewTextBoxColumn,
             this.typeOfEngineDataGridViewTextBoxColumn});
@@ -184,45 +188,13 @@
             this.dataGridView1.Size = new System.Drawing.Size(679, 188);
             this.dataGridView1.TabIndex = 0;
             // 
-            // modelDataGridViewTextBoxColumn
-            // 
-            this.modelDataGridViewTextBoxColumn.DataPropertyName = "Model";
-            this.modelDataGridViewTextBoxColumn.HeaderText = "Модель авто";
-            this.modelDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.modelDataGridViewTextBoxColumn.Name = "modelDataGridViewTextBoxColumn";
-            this.modelDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // yearDataGridViewTextBoxColumn
-            // 
-            this.yearDataGridViewTextBoxColumn.DataPropertyName = "Year";
-            this.yearDataGridViewTextBoxColumn.HeaderText = "Рік випуску";
-            this.yearDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.yearDataGridViewTextBoxColumn.Name = "yearDataGridViewTextBoxColumn";
-            this.yearDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // numberOfSeatsDataGridViewTextBoxColumn
-            // 
-            this.numberOfSeatsDataGridViewTextBoxColumn.DataPropertyName = "NumberOfSeats";
-            this.numberOfSeatsDataGridViewTextBoxColumn.HeaderText = "Кількість сидінь";
-            this.numberOfSeatsDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.numberOfSeatsDataGridViewTextBoxColumn.Name = "numberOfSeatsDataGridViewTextBoxColumn";
-            this.numberOfSeatsDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // typeOfEngineDataGridViewTextBoxColumn
-            // 
-            this.typeOfEngineDataGridViewTextBoxColumn.DataPropertyName = "TypeOfEngine";
-            this.typeOfEngineDataGridViewTextBoxColumn.HeaderText = "Тип коробки передач";
-            this.typeOfEngineDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.typeOfEngineDataGridViewTextBoxColumn.Name = "typeOfEngineDataGridViewTextBoxColumn";
-            this.typeOfEngineDataGridViewTextBoxColumn.Width = 125;
-            // 
             // clientsTabPage
             // 
             this.clientsTabPage.Controls.Add(this.saveClientButton);
             this.clientsTabPage.Controls.Add(this.dataGridView3);
             this.clientsTabPage.Location = new System.Drawing.Point(4, 29);
             this.clientsTabPage.Name = "clientsTabPage";
-            this.clientsTabPage.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.clientsTabPage.Padding = new System.Windows.Forms.Padding(3);
             this.clientsTabPage.Size = new System.Drawing.Size(829, 393);
             this.clientsTabPage.TabIndex = 2;
             this.clientsTabPage.Text = "Клієнти";
@@ -300,9 +272,9 @@
             this.fineTabPage.Controls.Add(this.button1);
             this.fineTabPage.Controls.Add(this.dataGridView4);
             this.fineTabPage.Location = new System.Drawing.Point(4, 29);
-            this.fineTabPage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.fineTabPage.Margin = new System.Windows.Forms.Padding(2);
             this.fineTabPage.Name = "fineTabPage";
-            this.fineTabPage.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.fineTabPage.Padding = new System.Windows.Forms.Padding(2);
             this.fineTabPage.Size = new System.Drawing.Size(829, 393);
             this.fineTabPage.TabIndex = 3;
             this.fineTabPage.Text = "Штрафи";
@@ -311,7 +283,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(32, 280);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(90, 27);
             this.button1.TabIndex = 1;
@@ -327,7 +299,7 @@
             this.priceDataGridViewTextBoxColumn});
             this.dataGridView4.DataSource = this.fineBindingSource;
             this.dataGridView4.Location = new System.Drawing.Point(32, 43);
-            this.dataGridView4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView4.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView4.Name = "dataGridView4";
             this.dataGridView4.RowHeadersWidth = 62;
             this.dataGridView4.RowTemplate.Height = 33;
@@ -409,6 +381,54 @@
             this.actualReturnDateDataGridViewTextBoxColumn.Name = "actualReturnDateDataGridViewTextBoxColumn";
             this.actualReturnDateDataGridViewTextBoxColumn.Width = 125;
             // 
+            // TotalSum
+            // 
+            this.TotalSum.DataPropertyName = "TotalSum";
+            this.TotalSum.HeaderText = "Cума";
+            this.TotalSum.MinimumWidth = 6;
+            this.TotalSum.Name = "TotalSum";
+            this.TotalSum.Width = 125;
+            // 
+            // modelDataGridViewTextBoxColumn
+            // 
+            this.modelDataGridViewTextBoxColumn.DataPropertyName = "Model";
+            this.modelDataGridViewTextBoxColumn.HeaderText = "Модель авто";
+            this.modelDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.modelDataGridViewTextBoxColumn.Name = "modelDataGridViewTextBoxColumn";
+            this.modelDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // PricePerDay
+            // 
+            this.PricePerDay.DataPropertyName = "PricePerDay";
+            this.PricePerDay.HeaderText = "Вартість прокату в день";
+            this.PricePerDay.MinimumWidth = 6;
+            this.PricePerDay.Name = "PricePerDay";
+            this.PricePerDay.Width = 125;
+            // 
+            // yearDataGridViewTextBoxColumn
+            // 
+            this.yearDataGridViewTextBoxColumn.DataPropertyName = "Year";
+            this.yearDataGridViewTextBoxColumn.HeaderText = "Рік випуску";
+            this.yearDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.yearDataGridViewTextBoxColumn.Name = "yearDataGridViewTextBoxColumn";
+            this.yearDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // numberOfSeatsDataGridViewTextBoxColumn
+            // 
+            this.numberOfSeatsDataGridViewTextBoxColumn.DataPropertyName = "NumberOfSeats";
+            this.numberOfSeatsDataGridViewTextBoxColumn.HeaderText = "Кількість сидінь";
+            this.numberOfSeatsDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.numberOfSeatsDataGridViewTextBoxColumn.Name = "numberOfSeatsDataGridViewTextBoxColumn";
+            this.numberOfSeatsDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // typeOfEngineDataGridViewTextBoxColumn
+            // 
+            this.typeOfEngineDataGridViewTextBoxColumn.DataPropertyName = "TypeOfEngine";
+            this.typeOfEngineDataGridViewTextBoxColumn.HeaderText = "Тип коробки передач";
+            this.typeOfEngineDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.typeOfEngineDataGridViewTextBoxColumn.Name = "typeOfEngineDataGridViewTextBoxColumn";
+            this.typeOfEngineDataGridViewTextBoxColumn.Width = 125;
+            // 
             // CarRentalForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -455,10 +475,6 @@
         private DataGridView dataGridView4;
         private BindingSource fineBindingSource;
         private Button button1;
-        private DataGridViewTextBoxColumn modelDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn yearDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn numberOfSeatsDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn typeOfEngineDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn phoneNumberDataGridViewTextBoxColumn;
@@ -471,5 +487,11 @@
         private DataGridViewTextBoxColumn startDateDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn expectedReturnDateDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn actualReturnDateDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn TotalSum;
+        private DataGridViewTextBoxColumn modelDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn PricePerDay;
+        private DataGridViewTextBoxColumn yearDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn numberOfSeatsDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn typeOfEngineDataGridViewTextBoxColumn;
     }
 }
