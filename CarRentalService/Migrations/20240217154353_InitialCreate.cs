@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace CarRentalService.Migrations
 {
-    public partial class Initial : Migration
+    public partial class InitialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -16,8 +16,7 @@ namespace CarRentalService.Migrations
                     Model = table.Column<string>(nullable: true),
                     Year = table.Column<int>(nullable: false),
                     NumberOfSeats = table.Column<int>(nullable: false),
-                    TypeOfEngine = table.Column<string>(nullable: true),
-                    PricePerDay = table.Column<double>(nullable: false)
+                    TypeOfEngine = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -42,31 +41,17 @@ namespace CarRentalService.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Fines",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Title = table.Column<string>(nullable: true),
-                    Price = table.Column<double>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Fines", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Reservations",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ClientId = table.Column<int>(nullable: false),
+                    UserId = table.Column<int>(nullable: false),
                     CarId = table.Column<int>(nullable: false),
                     StartDate = table.Column<DateTime>(nullable: false),
                     ExpectedReturnDate = table.Column<DateTime>(nullable: false),
                     ActualReturnDate = table.Column<DateTime>(nullable: true),
-                    TotalSum = table.Column<double>(nullable: false)
+                    ClientId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -82,7 +67,7 @@ namespace CarRentalService.Migrations
                         column: x => x.ClientId,
                         principalTable: "Clients",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
@@ -98,9 +83,6 @@ namespace CarRentalService.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "Fines");
-
             migrationBuilder.DropTable(
                 name: "Reservations");
 
