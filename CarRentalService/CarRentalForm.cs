@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using CarRentalService.DataAccess;
 
 namespace CarRentalService
 {
@@ -17,9 +9,14 @@ namespace CarRentalService
             InitializeComponent();
         }
 
-        private void CarRentalForm_Load(object sender, EventArgs e)
+        private void CarRentalForm_Load_1(object sender, EventArgs e)
         {
-
+            using (var context = new CarRentalContext())
+            {
+                context.Database.EnsureCreated();
+                
+                // dataGridView1.DataSource = authors;
+            }
         }
     }
 }

@@ -86,6 +86,7 @@
             this.Controls.Add(this.tabControl);
             this.Name = "CarRentalForm";
             this.Text = "Сервіс бронювання авто";
+            this.Load += new System.EventHandler(this.CarRentalForm_Load_1);
             this.tabControl.ResumeLayout(false);
             this.ResumeLayout(false);
 
