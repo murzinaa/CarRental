@@ -14,6 +14,8 @@
 
         public DateTime? ActualReturnDate { get; set; }
 
+        public virtual List<Fine> Fines { get; set; } = new();
+
         public virtual Car Car { get; set; }
 
         public virtual Client Client { get; set; }
