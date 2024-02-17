@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CarRentalService.Migrations
 {
     [DbContext(typeof(CarRentalContext))]
-    [Migration("20240217154353_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20240217215800_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -33,6 +33,9 @@ namespace CarRentalService.Migrations
 
                     b.Property<int>("NumberOfSeats")
                         .HasColumnType("int");
+
+                    b.Property<double>("PricePerDay")
+                        .HasColumnType("float");
 
                     b.Property<string>("TypeOfEngine")
                         .HasColumnType("nvarchar(max)");
@@ -72,6 +75,24 @@ namespace CarRentalService.Migrations
                     b.ToTable("Clients");
                 });
 
+            modelBuilder.Entity("CarRentalService.DataAccess.Entities.Fine", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<double>("Price")
+                        .HasColumnType("float");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Fines");
+                });
+
             modelBuilder.Entity("CarRentalService.DataAccess.Entities.Reservation", b =>
                 {
                     b.Property<int>("Id")
@@ -85,7 +106,7 @@ namespace CarRentalService.Migrations
                     b.Property<int>("CarId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("ClientId")
+                    b.Property<int>("ClientId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("ExpectedReturnDate")
@@ -94,8 +115,8 @@ namespace CarRentalService.Migrations
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
+                    b.Property<double>("TotalSum")
+                        .HasColumnType("float");
 
                     b.HasKey("Id");
 
@@ -116,7 +137,9 @@ namespace CarRentalService.Migrations
 
                     b.HasOne("CarRentalService.DataAccess.Entities.Client", "Client")
                         .WithMany()
-                        .HasForeignKey("ClientId");
+                        .HasForeignKey("ClientId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

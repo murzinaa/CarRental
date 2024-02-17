@@ -32,6 +32,9 @@ namespace CarRentalService.Migrations
                     b.Property<int>("NumberOfSeats")
                         .HasColumnType("int");
 
+                    b.Property<double>("PricePerDay")
+                        .HasColumnType("float");
+
                     b.Property<string>("TypeOfEngine")
                         .HasColumnType("nvarchar(max)");
 
@@ -101,7 +104,7 @@ namespace CarRentalService.Migrations
                     b.Property<int>("CarId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("ClientId")
+                    b.Property<int>("ClientId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("ExpectedReturnDate")
@@ -110,8 +113,8 @@ namespace CarRentalService.Migrations
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
+                    b.Property<double>("TotalSum")
+                        .HasColumnType("float");
 
                     b.HasKey("Id");
 
@@ -132,7 +135,9 @@ namespace CarRentalService.Migrations
 
                     b.HasOne("CarRentalService.DataAccess.Entities.Client", "Client")
                         .WithMany()
-                        .HasForeignKey("ClientId");
+                        .HasForeignKey("ClientId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

@@ -4,7 +4,7 @@
     {
         public int Id { get; set; }
 
-        public int UserId { get; set; }
+        public int ClientId { get; set; }
 
         public int CarId { get; set; }
 
@@ -13,6 +13,8 @@
         public DateTime ExpectedReturnDate { get; set; }
 
         public DateTime? ActualReturnDate { get; set; }
+
+        public double TotalSum { get; set; }
 
         public virtual Car Car { get; set; }
 

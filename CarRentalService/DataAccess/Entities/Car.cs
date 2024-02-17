@@ -11,5 +11,7 @@
         public int NumberOfSeats { get; set; }
 
         public string TypeOfEngine { get; set; }
+
+        public double PricePerDay { get; set; }
     }
 }
