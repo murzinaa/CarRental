@@ -28,11 +28,49 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.reservationTabPage = new System.Windows.Forms.TabPage();
             this.carTabPage = new System.Windows.Forms.TabPage();
+            this.saveButton = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.modelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.yearDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.numberOfSeatsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.typeOfEngineDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.carBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.clientsTabPage = new System.Windows.Forms.TabPage();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.reservationBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.userIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.carIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.startDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.expectedReturnDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.actualReturnDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.carDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clientDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.clientBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.idDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.firstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.phoneNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emailAddressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.isRegularClientDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.saveReservationButton = new System.Windows.Forms.Button();
+            this.saveClientButton = new System.Windows.Forms.Button();
             this.tabControl.SuspendLayout();
+            this.reservationTabPage.SuspendLayout();
+            this.carTabPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.carBindingSource)).BeginInit();
+            this.clientsTabPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reservationBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl
@@ -44,15 +82,17 @@
             this.tabControl.Multiline = true;
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(791, 426);
+            this.tabControl.Size = new System.Drawing.Size(837, 426);
             this.tabControl.TabIndex = 0;
             // 
             // reservationTabPage
             // 
+            this.reservationTabPage.Controls.Add(this.saveReservationButton);
+            this.reservationTabPage.Controls.Add(this.dataGridView2);
             this.reservationTabPage.Location = new System.Drawing.Point(4, 29);
             this.reservationTabPage.Name = "reservationTabPage";
             this.reservationTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.reservationTabPage.Size = new System.Drawing.Size(783, 393);
+            this.reservationTabPage.Size = new System.Drawing.Size(829, 393);
             this.reservationTabPage.TabIndex = 0;
             this.reservationTabPage.Text = "Бронювання";
             this.reservationTabPage.UseVisualStyleBackColor = true;
@@ -60,34 +100,299 @@
             // 
             // carTabPage
             // 
+            this.carTabPage.Controls.Add(this.saveButton);
+            this.carTabPage.Controls.Add(this.dataGridView1);
             this.carTabPage.Location = new System.Drawing.Point(4, 29);
             this.carTabPage.Name = "carTabPage";
             this.carTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.carTabPage.Size = new System.Drawing.Size(783, 393);
+            this.carTabPage.Size = new System.Drawing.Size(829, 393);
             this.carTabPage.TabIndex = 1;
             this.carTabPage.Text = "Авто";
             this.carTabPage.UseVisualStyleBackColor = true;
+            this.carTabPage.Click += new System.EventHandler(this.carTabPage_Click);
+            // 
+            // saveButton
+            // 
+            this.saveButton.Location = new System.Drawing.Point(16, 242);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(94, 29);
+            this.saveButton.TabIndex = 1;
+            this.saveButton.Text = "Save";
+            this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn,
+            this.modelDataGridViewTextBoxColumn,
+            this.yearDataGridViewTextBoxColumn,
+            this.numberOfSeatsDataGridViewTextBoxColumn,
+            this.typeOfEngineDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.carBindingSource;
+            this.dataGridView1.Location = new System.Drawing.Point(16, 25);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 29;
+            this.dataGridView1.Size = new System.Drawing.Size(679, 188);
+            this.dataGridView1.TabIndex = 0;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // modelDataGridViewTextBoxColumn
+            // 
+            this.modelDataGridViewTextBoxColumn.DataPropertyName = "Model";
+            this.modelDataGridViewTextBoxColumn.HeaderText = "Модель авто";
+            this.modelDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.modelDataGridViewTextBoxColumn.Name = "modelDataGridViewTextBoxColumn";
+            this.modelDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // yearDataGridViewTextBoxColumn
+            // 
+            this.yearDataGridViewTextBoxColumn.DataPropertyName = "Year";
+            this.yearDataGridViewTextBoxColumn.HeaderText = "Рік випуску";
+            this.yearDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.yearDataGridViewTextBoxColumn.Name = "yearDataGridViewTextBoxColumn";
+            this.yearDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // numberOfSeatsDataGridViewTextBoxColumn
+            // 
+            this.numberOfSeatsDataGridViewTextBoxColumn.DataPropertyName = "NumberOfSeats";
+            this.numberOfSeatsDataGridViewTextBoxColumn.HeaderText = "Рік випуску";
+            this.numberOfSeatsDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.numberOfSeatsDataGridViewTextBoxColumn.Name = "numberOfSeatsDataGridViewTextBoxColumn";
+            this.numberOfSeatsDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // typeOfEngineDataGridViewTextBoxColumn
+            // 
+            this.typeOfEngineDataGridViewTextBoxColumn.DataPropertyName = "TypeOfEngine";
+            this.typeOfEngineDataGridViewTextBoxColumn.HeaderText = "Тип двигуна";
+            this.typeOfEngineDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.typeOfEngineDataGridViewTextBoxColumn.Name = "typeOfEngineDataGridViewTextBoxColumn";
+            this.typeOfEngineDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // carBindingSource
+            // 
+            this.carBindingSource.DataSource = typeof(CarRentalService.DataAccess.Entities.Car);
             // 
             // clientsTabPage
             // 
+            this.clientsTabPage.Controls.Add(this.saveClientButton);
+            this.clientsTabPage.Controls.Add(this.dataGridView3);
             this.clientsTabPage.Location = new System.Drawing.Point(4, 29);
             this.clientsTabPage.Name = "clientsTabPage";
             this.clientsTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.clientsTabPage.Size = new System.Drawing.Size(783, 393);
+            this.clientsTabPage.Size = new System.Drawing.Size(829, 393);
             this.clientsTabPage.TabIndex = 2;
             this.clientsTabPage.Text = "Клієнти";
             this.clientsTabPage.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.AutoGenerateColumns = false;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn1,
+            this.userIdDataGridViewTextBoxColumn,
+            this.carIdDataGridViewTextBoxColumn,
+            this.startDateDataGridViewTextBoxColumn,
+            this.expectedReturnDateDataGridViewTextBoxColumn,
+            this.actualReturnDateDataGridViewTextBoxColumn,
+            this.carDataGridViewTextBoxColumn,
+            this.clientDataGridViewTextBoxColumn});
+            this.dataGridView2.DataSource = this.reservationBindingSource;
+            this.dataGridView2.Location = new System.Drawing.Point(12, 14);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.RowHeadersWidth = 51;
+            this.dataGridView2.RowTemplate.Height = 29;
+            this.dataGridView2.Size = new System.Drawing.Size(747, 265);
+            this.dataGridView2.TabIndex = 0;
+            // 
+            // reservationBindingSource
+            // 
+            this.reservationBindingSource.DataSource = typeof(CarRentalService.DataAccess.Entities.Reservation);
+            // 
+            // idDataGridViewTextBoxColumn1
+            // 
+            this.idDataGridViewTextBoxColumn1.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn1.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
+            this.idDataGridViewTextBoxColumn1.Width = 125;
+            // 
+            // userIdDataGridViewTextBoxColumn
+            // 
+            this.userIdDataGridViewTextBoxColumn.DataPropertyName = "UserId";
+            this.userIdDataGridViewTextBoxColumn.HeaderText = "UserId";
+            this.userIdDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.userIdDataGridViewTextBoxColumn.Name = "userIdDataGridViewTextBoxColumn";
+            this.userIdDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // carIdDataGridViewTextBoxColumn
+            // 
+            this.carIdDataGridViewTextBoxColumn.DataPropertyName = "CarId";
+            this.carIdDataGridViewTextBoxColumn.HeaderText = "CarId";
+            this.carIdDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.carIdDataGridViewTextBoxColumn.Name = "carIdDataGridViewTextBoxColumn";
+            this.carIdDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // startDateDataGridViewTextBoxColumn
+            // 
+            this.startDateDataGridViewTextBoxColumn.DataPropertyName = "StartDate";
+            this.startDateDataGridViewTextBoxColumn.HeaderText = "StartDate";
+            this.startDateDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.startDateDataGridViewTextBoxColumn.Name = "startDateDataGridViewTextBoxColumn";
+            this.startDateDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // expectedReturnDateDataGridViewTextBoxColumn
+            // 
+            this.expectedReturnDateDataGridViewTextBoxColumn.DataPropertyName = "ExpectedReturnDate";
+            this.expectedReturnDateDataGridViewTextBoxColumn.HeaderText = "ExpectedReturnDate";
+            this.expectedReturnDateDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.expectedReturnDateDataGridViewTextBoxColumn.Name = "expectedReturnDateDataGridViewTextBoxColumn";
+            this.expectedReturnDateDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // actualReturnDateDataGridViewTextBoxColumn
+            // 
+            this.actualReturnDateDataGridViewTextBoxColumn.DataPropertyName = "ActualReturnDate";
+            this.actualReturnDateDataGridViewTextBoxColumn.HeaderText = "ActualReturnDate";
+            this.actualReturnDateDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.actualReturnDateDataGridViewTextBoxColumn.Name = "actualReturnDateDataGridViewTextBoxColumn";
+            this.actualReturnDateDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // carDataGridViewTextBoxColumn
+            // 
+            this.carDataGridViewTextBoxColumn.DataPropertyName = "Car";
+            this.carDataGridViewTextBoxColumn.HeaderText = "Car";
+            this.carDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.carDataGridViewTextBoxColumn.Name = "carDataGridViewTextBoxColumn";
+            this.carDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // clientDataGridViewTextBoxColumn
+            // 
+            this.clientDataGridViewTextBoxColumn.DataPropertyName = "Client";
+            this.clientDataGridViewTextBoxColumn.HeaderText = "Client";
+            this.clientDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.clientDataGridViewTextBoxColumn.Name = "clientDataGridViewTextBoxColumn";
+            this.clientDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // dataGridView3
+            // 
+            this.dataGridView3.AutoGenerateColumns = false;
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn2,
+            this.firstNameDataGridViewTextBoxColumn,
+            this.lastNameDataGridViewTextBoxColumn,
+            this.phoneNumberDataGridViewTextBoxColumn,
+            this.emailAddressDataGridViewTextBoxColumn,
+            this.isRegularClientDataGridViewCheckBoxColumn});
+            this.dataGridView3.DataSource = this.clientBindingSource;
+            this.dataGridView3.Location = new System.Drawing.Point(12, 14);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.RowHeadersWidth = 51;
+            this.dataGridView3.RowTemplate.Height = 29;
+            this.dataGridView3.Size = new System.Drawing.Size(799, 213);
+            this.dataGridView3.TabIndex = 0;
+            // 
+            // clientBindingSource
+            // 
+            this.clientBindingSource.DataSource = typeof(CarRentalService.DataAccess.Entities.Client);
+            // 
+            // idDataGridViewTextBoxColumn2
+            // 
+            this.idDataGridViewTextBoxColumn2.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn2.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn2.MinimumWidth = 6;
+            this.idDataGridViewTextBoxColumn2.Name = "idDataGridViewTextBoxColumn2";
+            this.idDataGridViewTextBoxColumn2.Width = 125;
+            // 
+            // firstNameDataGridViewTextBoxColumn
+            // 
+            this.firstNameDataGridViewTextBoxColumn.DataPropertyName = "FirstName";
+            this.firstNameDataGridViewTextBoxColumn.HeaderText = "FirstName";
+            this.firstNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.firstNameDataGridViewTextBoxColumn.Name = "firstNameDataGridViewTextBoxColumn";
+            this.firstNameDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // lastNameDataGridViewTextBoxColumn
+            // 
+            this.lastNameDataGridViewTextBoxColumn.DataPropertyName = "LastName";
+            this.lastNameDataGridViewTextBoxColumn.HeaderText = "LastName";
+            this.lastNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.lastNameDataGridViewTextBoxColumn.Name = "lastNameDataGridViewTextBoxColumn";
+            this.lastNameDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // phoneNumberDataGridViewTextBoxColumn
+            // 
+            this.phoneNumberDataGridViewTextBoxColumn.DataPropertyName = "PhoneNumber";
+            this.phoneNumberDataGridViewTextBoxColumn.HeaderText = "PhoneNumber";
+            this.phoneNumberDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.phoneNumberDataGridViewTextBoxColumn.Name = "phoneNumberDataGridViewTextBoxColumn";
+            this.phoneNumberDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // emailAddressDataGridViewTextBoxColumn
+            // 
+            this.emailAddressDataGridViewTextBoxColumn.DataPropertyName = "EmailAddress";
+            this.emailAddressDataGridViewTextBoxColumn.HeaderText = "EmailAddress";
+            this.emailAddressDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.emailAddressDataGridViewTextBoxColumn.Name = "emailAddressDataGridViewTextBoxColumn";
+            this.emailAddressDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // isRegularClientDataGridViewCheckBoxColumn
+            // 
+            this.isRegularClientDataGridViewCheckBoxColumn.DataPropertyName = "IsRegularClient";
+            this.isRegularClientDataGridViewCheckBoxColumn.HeaderText = "IsRegularClient";
+            this.isRegularClientDataGridViewCheckBoxColumn.MinimumWidth = 6;
+            this.isRegularClientDataGridViewCheckBoxColumn.Name = "isRegularClientDataGridViewCheckBoxColumn";
+            this.isRegularClientDataGridViewCheckBoxColumn.Width = 125;
+            // 
+            // saveReservationButton
+            // 
+            this.saveReservationButton.Location = new System.Drawing.Point(18, 305);
+            this.saveReservationButton.Name = "saveReservationButton";
+            this.saveReservationButton.Size = new System.Drawing.Size(94, 29);
+            this.saveReservationButton.TabIndex = 1;
+            this.saveReservationButton.Text = "Save";
+            this.saveReservationButton.UseVisualStyleBackColor = true;
+            // 
+            // saveClientButton
+            // 
+            this.saveClientButton.Location = new System.Drawing.Point(28, 262);
+            this.saveClientButton.Name = "saveClientButton";
+            this.saveClientButton.Size = new System.Drawing.Size(94, 29);
+            this.saveClientButton.TabIndex = 1;
+            this.saveClientButton.Text = "Save";
+            this.saveClientButton.UseVisualStyleBackColor = true;
             // 
             // CarRentalForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(861, 444);
             this.Controls.Add(this.tabControl);
             this.Name = "CarRentalForm";
             this.Text = "Сервіс бронювання авто";
             this.Load += new System.EventHandler(this.CarRentalForm_Load_1);
             this.tabControl.ResumeLayout(false);
+            this.reservationTabPage.ResumeLayout(false);
+            this.carTabPage.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.carBindingSource)).EndInit();
+            this.clientsTabPage.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reservationBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -98,5 +403,33 @@
         private TabPage reservationTabPage;
         private TabPage carTabPage;
         private TabPage clientsTabPage;
+        private DataGridView dataGridView1;
+        private BindingSource carBindingSource;
+        private Button saveButton;
+        private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn modelDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn yearDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn numberOfSeatsDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn typeOfEngineDataGridViewTextBoxColumn;
+        private Button saveReservationButton;
+        private DataGridView dataGridView2;
+        private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn userIdDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn carIdDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn startDateDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn expectedReturnDateDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn actualReturnDateDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn carDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn clientDataGridViewTextBoxColumn;
+        private BindingSource reservationBindingSource;
+        private Button saveClientButton;
+        private DataGridView dataGridView3;
+        private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn2;
+        private DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn phoneNumberDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn emailAddressDataGridViewTextBoxColumn;
+        private DataGridViewCheckBoxColumn isRegularClientDataGridViewCheckBoxColumn;
+        private BindingSource clientBindingSource;
     }
 }
